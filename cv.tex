@@ -1,0 +1,88 @@
+\documentclass[12pt]{friggeri-cv}
+\addbibresource{mypapers.bib}
+
+\definecolor{darker_blue}{HTML}{4063D8}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % no lik border color
+    allcolors=darker_blue,         % color of internal links (change box color with linkbordercolor)
+    allbordercolors=white  % white border color for all
+}
+%\addbibresource{bibliography.bib}
+
+\definecolor{pblue}{RGB}{1.0,0.1,0.1}
+
+
+% References 2 columns
+\newcommand{\cvRefsTwoCols}[2]{
+  \vspace{-\abovedisplayskip}
+  \begin{minipage}[t]{.45\textwidth}#1\end{minipage}
+  \hfill
+  \begin{minipage}[t]{.45\textwidth}#2\end{minipage}
+}
+
+% Skills 2 columns
+\newcommand{\cvSkillsTwoCols}[2]{
+  \vspace{-\abovedisplayskip}
+  \begin{minipage}[t]{.45\textwidth}#1\end{minipage}
+  \hfill
+  \begin{minipage}[t]{.45\textwidth}#2\end{minipage}
+}
+
+\newcommand{\cvreference}[4]{
+    {\headingfont\color{headercolor}#1}\\
+    {\href{mailto:#3@#4}{#3@#4}\\}
+    {#2}
+    \vspace{1em}
+}
+% \newcommand{\cvreference}[4]{
+%     {\headingfont\color{headercolor}#1}\\
+%     {#2}
+%     \begin{flushright}
+%     {\href{mailto:#3@#4}{\textbf{#3}@#4}\\}
+%     \end{flushright}
+% }
+
+
+% add academic icons (google scholar)
+\usepackage{academicons}
+
+
+% Remove asterisk in bibliography
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+% Prevent orphan and widow lines in bibliography
+\makeatletter
+\AtBeginEnvironment{thebibliography}{%
+   \clubpenalty10000
+   \@clubpenalty \clubpenalty
+   \widowpenalty10000}
+\makeatother
+
+\begin{document}
+
+\header{Beno\^{i}t~}{Pasquier}
+
+\input{components/affiliation.tex}
+
+\input{components/summary.tex}
+
+% \input{components/research_interests.tex}
+
+\input{components/professional_experience.tex}
+
+\input{components/education.tex}
+
+\input{components/bibliography.tex}
+
+\input{components/awards.tex}
+
+\input{components/software_contributions.tex}
+
+\input{components/skills.tex}
+
+\input{components/references.tex}
+
+\end{document}
